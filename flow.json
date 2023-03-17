@@ -1,0 +1,42 @@
+{
+	"contracts": {
+		"ExampleNFT": "cadence/contracts/ExampleNFT.cdc",
+		"FungibleToken": "cadence/contracts/standards/FungibleToken.cdc",
+		"MetadataViews": "cadence/contracts/standards/MetadataViews.cdc",
+		"NonFungibleToken": "cadence/contracts/standards/NonFungibleToken.cdc",
+		"ViewResolver": "cadence/contracts/standards/ViewResolver.cdc"
+	},
+	"networks": {
+		"emulator": "127.0.0.1:3569",
+		"mainnet": "access.mainnet.nodes.onflow.org:9000",
+		"sandboxnet": "access.sandboxnet.nodes.onflow.org:9000",
+		"testnet": "access.devnet.nodes.onflow.org:9000"
+	},
+	"accounts": {
+		"default": {
+			"address": "e03daebed8ca0615",
+			"key": "6655b8451ee7e9dd8a8707abdc87f2896ab0e4ca5e495171a0045eb465e5ebf9"
+		},
+		"emulator-account": {
+			"address": "f8d6e0586b0a20c7",
+			"key": "d2c3686da84d61c13627bdf2127866fe358165734f5470be792e6771901d2856"
+		},
+		"standards": {
+			"address": "120e725050340cab",
+			"key": "41f9aaf902789776ad22095341eb46b5896a8dc1bd7c449f12513d5ab4ac19f1"
+		}
+	},
+	"deployments": {
+		"emulator": {
+			"default": [
+				"ExampleNFT"
+			],
+			"standards": [
+				"FungibleToken",
+				"MetadataViews",
+				"NonFungibleToken",
+				"ViewResolver"
+			]
+		}
+	}
+}
