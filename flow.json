@@ -15,15 +15,15 @@
 	"accounts": {
 		"default": {
 			"address": "e03daebed8ca0615",
-			"key": "6655b8451ee7e9dd8a8707abdc87f2896ab0e4ca5e495171a0045eb465e5ebf9"
+			"key": "b7d5a613fbcff99a527ee9b266fd48bbce764de145ebe406e73849d411d01b7e"
 		},
 		"emulator-account": {
 			"address": "f8d6e0586b0a20c7",
 			"key": "d2c3686da84d61c13627bdf2127866fe358165734f5470be792e6771901d2856"
 		},
 		"standards": {
-			"address": "120e725050340cab",
-			"key": "41f9aaf902789776ad22095341eb46b5896a8dc1bd7c449f12513d5ab4ac19f1"
+			"address": "045a1763c93006ca",
+			"key": "a70a78b33475aeb951b62123f98709b89fb36eecab7f48197024716832383c18"
 		}
 	},
 	"deployments": {
