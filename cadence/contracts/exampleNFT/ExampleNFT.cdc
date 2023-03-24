@@ -9,9 +9,9 @@
 *
 */
 
-import NonFungibleToken from "./standards/NonFungibleToken.cdc"
-import MetadataViews from "./standards/MetadataViews.cdc"
-import ViewResolver from "./standards/ViewResolver.cdc"
+import NonFungibleToken from "../standards/NonFungibleToken.cdc"
+import MetadataViews from "../standards/MetadataViews.cdc"
+import ViewResolver from "../standards/ViewResolver.cdc"
 
 pub contract ExampleNFT: NonFungibleToken, ViewResolver {
 

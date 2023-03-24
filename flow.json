@@ -1,6 +1,6 @@
 {
 	"contracts": {
-		"ExampleNFT": "cadence/contracts/ExampleNFT.cdc",
+		"ExampleNFT": "cadence/contracts/exampleNFT/ExampleNFT.cdc",
 		"FungibleToken": "cadence/contracts/standards/FungibleToken.cdc",
 		"MetadataViews": "cadence/contracts/standards/MetadataViews.cdc",
 		"NonFungibleToken": "cadence/contracts/standards/NonFungibleToken.cdc",
@@ -14,21 +14,26 @@
 	},
 	"accounts": {
 		"default": {
-			"address": "e03daebed8ca0615",
-			"key": "b7d5a613fbcff99a527ee9b266fd48bbce764de145ebe406e73849d411d01b7e"
+			"address": "f669cb8d41ce0c74",
+			"key": "353d28a255ad3bc28d66ab7028bc9da11faee3e6c67a4fa6c7f2b52b24186990"
 		},
 		"emulator-account": {
 			"address": "f8d6e0586b0a20c7",
 			"key": "d2c3686da84d61c13627bdf2127866fe358165734f5470be792e6771901d2856"
 		},
+		"exampleNFT": {
+			"address": "192440c99cb17282",
+			"key": "7abec6e4b334a8440d7e806c3078e6d4ad24363df875c0b2e2d95d51c87e3db5"
+		},
 		"standards": {
-			"address": "045a1763c93006ca",
-			"key": "a70a78b33475aeb951b62123f98709b89fb36eecab7f48197024716832383c18"
+			"address": "fd43f9148d4b725d",
+			"key": "03451d7d2407aef73f823458542a0363a9a002422edec8a38cd8a58f03508812"
 		}
 	},
 	"deployments": {
 		"emulator": {
-			"default": [
+			"default": [],
+			"exampleNFT": [
 				"ExampleNFT"
 			],
 			"standards": [
