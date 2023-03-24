@@ -1,5 +1,5 @@
-import NonFungibleToken from "../contracts/standards/NonFungibleToken.cdc"
-import ExampleNFT from "../contracts/exampleNFT/ExampleNFT.cdc"
+import "NonFungibleToken"
+import "ExampleNFT"
 
 /// Mints a new ExampleNFT into recipient's account
 
