@@ -1,25 +1,44 @@
 {
 	"contracts": {
-		"ExampleNFT": "cadence/contracts/exampleNFT/ExampleNFT.cdc",
+		"ExampleNFT": "cadence/contracts/exampleNFT/ExampleNFT.cdc"
+	},
+	"dependencies": {
 		"FungibleToken": {
-			"source": "",
+			"source": "testnet://9a0766d93b6608b7.FungibleToken",
+			"hash": "6839378c7c94fa051db4f63fcc5c572ee7a7f49b962f2d161c8f2d7381805299",
 			"aliases": {
-				"emulator": "ee82856bf20e2aa6"
+				"emulator": "ee82856bf20e2aa6",
+				"mainnet": "f233dcee88fe0abe",
+				"testnet": "9a0766d93b6608b7"
 			}
 		},
 		"MetadataViews": {
-			"source": "",
+			"source": "testnet://631e88ae7f1d7c20.MetadataViews",
+			"hash": "72fd6ab57a53dc70873e21e8a0d5c99ecb6db7681767d2a5679704a8ebf3b7da",
 			"aliases": {
-				"emulator": "f8d6e0586b0a20c7"
+				"emulator": "f8d6e0586b0a20c7",
+				"mainnet": "1d7e57aa55817448",
+				"testnet": "631e88ae7f1d7c20"
 			}
 		},
 		"NonFungibleToken": {
-			"source": "",
+			"source": "testnet://631e88ae7f1d7c20.NonFungibleToken",
+			"hash": "cdd73be33e303af8e2658bca8a6c1a24494e492e4dc577dbeef14113f04b1ce1",
 			"aliases": {
-				"emulator": "f8d6e0586b0a20c7"
+				"emulator": "f8d6e0586b0a20c7",
+				"mainnet": "1d7e57aa55817448",
+				"testnet": "631e88ae7f1d7c20"
 			}
 		},
-		"ViewResolver": "cadence/contracts/standards/ViewResolver.cdc"
+		"ViewResolver": {
+			"source": "testnet://631e88ae7f1d7c20.ViewResolver",
+			"hash": "9fa41186f38899625a6b4774f1a9addf8d16b76022d52a99174b4493499dc3de",
+			"aliases": {
+				"emulator": "f8d6e0586b0a20c7",
+				"mainnet": "1d7e57aa55817448",
+				"testnet": "631e88ae7f1d7c20"
+			}
+		}
 	},
 	"networks": {
 		"emulator": "127.0.0.1:3569",
