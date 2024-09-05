@@ -4,15 +4,15 @@
 	},
 	"dependencies": {
 		"Burner": {
-			"source": "previewnet://b6763b4399a888c8.Burner",
-			"hash": "9f84f00c8d2afd70916514e56f9459ef7f426b70a7440dd1b64f2723ff779ce7",
+			"source": "mainnet://f233dcee88fe0abe.Burner",
+			"hash": "71af18e227984cd434a3ad00bb2f3618b76482842bae920ee55662c37c8bf331",
 			"aliases": {
-				"previewnet": "b6763b4399a888c8"
+				"mainnet": "f233dcee88fe0abe"
 			}
 		},
 		"FungibleToken": {
-			"source": "previewnet://a0225e7000ac82a9.FungibleToken",
-			"hash": "3cad0cb7d88b8af34ab82a1580c6d70906649f7e974c12958a55c822d4f1e808",
+			"source": "mainnet://f233dcee88fe0abe.FungibleToken",
+			"hash": "1410889b47fef8b02f6867eef3d67a75288a56a651b67a7e815ce273ad301cff",
 			"aliases": {
 				"emulator": "ee82856bf20e2aa6",
 				"mainnet": "f233dcee88fe0abe",
@@ -21,8 +21,8 @@
 			}
 		},
 		"MetadataViews": {
-			"source": "previewnet://b6763b4399a888c8.MetadataViews",
-			"hash": "a49bab604f143ced27662b28d16887707ed7a4e60e626eb1e742ea93bf0bffb0",
+			"source": "mainnet://1d7e57aa55817448.MetadataViews",
+			"hash": "be26ea7959d7cbc06ac69fe00926b812c4da67984ea2d1bde1029141ae091378",
 			"aliases": {
 				"emulator": "f8d6e0586b0a20c7",
 				"mainnet": "1d7e57aa55817448",
@@ -31,8 +31,8 @@
 			}
 		},
 		"NonFungibleToken": {
-			"source": "previewnet://b6763b4399a888c8.NonFungibleToken",
-			"hash": "ebf4d24a324803365c238d95c621ee472f36acc1ed4158ff5d255e8fb865e3cc",
+			"source": "mainnet://1d7e57aa55817448.NonFungibleToken",
+			"hash": "49a58b950afdaf0728fdb7d4eb47cf4f2ec3077d655f274b7fdeb504c742f528",
 			"aliases": {
 				"emulator": "f8d6e0586b0a20c7",
 				"mainnet": "1d7e57aa55817448",
@@ -41,8 +41,8 @@
 			}
 		},
 		"ViewResolver": {
-			"source": "previewnet://b6763b4399a888c8.ViewResolver",
-			"hash": "eaa3214b0e178c5692cfc243a14c739150d5d57ef3f9204a252d70667a67db76",
+			"source": "mainnet://1d7e57aa55817448.ViewResolver",
+			"hash": "374a1994046bac9f6228b4843cb32393ef40554df9bd9907a702d098a2987bde",
 			"aliases": {
 				"emulator": "f8d6e0586b0a20c7",
 				"mainnet": "1d7e57aa55817448",
@@ -60,32 +60,23 @@
 	},
 	"accounts": {
 		"default": {
-			"address": "f669cb8d41ce0c74",
-			"key": "2e09fac1b3b8e128c67b2e57ba59ec8506ff8326053812135a954b4d3291096f"
+			"address": "179b6b1cb6755e31",
+			"key": "d2c3686da84d61c13627bdf2127866fe358165734f5470be792e6771901d2856"
 		},
 		"emulator-account": {
 			"address": "f8d6e0586b0a20c7",
 			"key": "d2c3686da84d61c13627bdf2127866fe358165734f5470be792e6771901d2856"
 		},
 		"exampleNFT": {
-			"address": "192440c99cb17282",
-			"key": "58cfc56dcbbfa8bfb7b9898586793b0710dfebe8a0358774044968abc9acc8c2"
-		},
-		"standards": {
-			"address": "fd43f9148d4b725d",
-			"key": "28946711cc802634ca4520c0f8b113e065c519dc02306a05ecb204a896ee80ed"
+			"address": "f3fcd2c1a78f5eee",
+			"key": "d2c3686da84d61c13627bdf2127866fe358165734f5470be792e6771901d2856"
 		}
 	},
 	"deployments": {
 		"emulator": {
-			"default": [
-				"Burner"
-			],
+			"default": [],
 			"exampleNFT": [
 				"ExampleNFT"
-			],
-			"standards": [
-				"ViewResolver"
 			]
 		}
 	}
