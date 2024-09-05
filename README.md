@@ -38,6 +38,12 @@ and then start the development command by running:
 ```
 After the command is started it will automatically watch any changes you make to Cadence files and make sure to continiously sync those changes on the emulator network. If you make any mistakes it will report the errors as well. Read more [about the command here](https://developers.flow.com/tools/flow-cli/super-commands)
 
+**Using external dependencies**
+
+If you wanna use external contract dependencies (like NonFungibleToken, FlowToken, FungibleToken,..) you can install them using Cadence dependency manager: https://developers.flow.com/tools/flow-cli/dependency-manager
+
+Use [ContractBrowser](https://contractbrowser.com/) to explore available 3rd party contracts in the Flow ecosystem.
+
 ## 🏎️ Interacting with ExampleNFT
 
 ### Initializing an Account
