@@ -1,48 +1,83 @@
+/// This script uses the NFTMinter resource to mint a new NFT
+/// It must be run with the account that has the minter resource
+/// stored in /storage/NFTMinter
+///
+/// The royalty arguments indicies must be aligned
+
 import "NonFungibleToken"
 import "ExampleNFT"
+import "MetadataViews"
+import "FungibleToken"
 
-/// Mints a new ExampleNFT into recipient's account
+transaction(
+    recipient: Address,
+    name: String,
+    description: String,
+    thumbnail: String,
+    cuts: [UFix64],
+    royaltyDescriptions: [String],
+    royaltyBeneficiaries: [Address]
+) {
 
-transaction(recipient: Address) {
     /// local variable for storing the minter reference
     let minter: &ExampleNFT.NFTMinter
 
     /// Reference to the receiver's collection
-    let recipientCollectionRef: &{NonFungibleToken.CollectionPublic}
+    let recipientCollectionRef: &{NonFungibleToken.Receiver}
 
-    /// Previous NFT ID before the transaction executes
-    let mintingIDBefore: UInt64
+    prepare(signer: auth(BorrowValue) &Account) {
 
-    prepare(signer: AuthAccount) {
-        self.mintingIDBefore = ExampleNFT.totalSupply
-
-        // Borrow a reference to the NFTMinter resource in storage
-        self.minter = signer.borrow<&ExampleNFT.NFTMinter>(from: ExampleNFT.MinterStoragePath)
-            ?? panic("signer does not store ExampleNFT.NFTMinter")
+        let collectionData = ExampleNFT.resolveContractView(resourceType: nil, viewType: Type<MetadataViews.NFTCollectionData>()) as! MetadataViews.NFTCollectionData?
+            ?? panic("ViewResolver does not resolve NFTCollectionData view")
+        
+        // borrow a reference to the NFTMinter resource in storage
+        self.minter = signer.storage.borrow<&ExampleNFT.NFTMinter>(from: ExampleNFT.MinterStoragePath)
+            ?? panic("Account does not store an object at the specified path")
 
         // Borrow the recipient's public NFT collection reference
-        self.recipientCollectionRef = getAccount(recipient)
-            .getCapability(ExampleNFT.CollectionPublicPath)
-            .borrow<&{NonFungibleToken.CollectionPublic}>()
-            ?? panic("Could not get receiver reference to the recipient's NFT Collection")
+        self.recipientCollectionRef = getAccount(recipient).capabilities.borrow<&{NonFungibleToken.Receiver}>(
+                collectionData.publicPath
+            ) ?? panic("Could not get receiver reference to the NFT Collection")
+    }
+
+    pre {
+        cuts.length == royaltyDescriptions.length && cuts.length == royaltyBeneficiaries.length: "Array length should be equal for royalty related details"
     }
 
     execute {
 
-        let currentIDString = self.mintingIDBefore.toString()
+        // Create the royalty details
+        var count = 0
+        var royalties: [MetadataViews.Royalty] = []
+        while royaltyBeneficiaries.length > count {
+            let beneficiary = royaltyBeneficiaries[count]
+            let beneficiaryCapability = getAccount(beneficiary).capabilities.get<&{FungibleToken.Receiver}>(
+                MetadataViews.getRoyaltyReceiverPublicPath()
+            )
+
+            if !beneficiaryCapability.check() {
+                panic("Beneficiary does not have Receiver configured at RoyaltyReceiverPublicPath")
+            }
+
+            royalties.append(
+                MetadataViews.Royalty(
+                    receiver: beneficiaryCapability,
+                    cut: cuts[count],
+                    description: royaltyDescriptions[count]
+                )
+            )
+            count = count + 1
+        }
+
 
         // Mint the NFT and deposit it to the recipient's collection
-         self.minter.mintNFT(
-            recipient: self.recipientCollectionRef,
-            name: "Example NFT #".concat(currentIDString),
-            description: "Example description for #".concat(currentIDString),
-            thumbnail: "https://robohash.org/".concat(currentIDString),
-            royalties: []
+        let mintedNFT <- self.minter.mintNFT(
+            name: name,
+            description: description,
+            thumbnail: thumbnail,
+            royalties: royalties
         )
+        self.recipientCollectionRef.deposit(token: <-mintedNFT)
     }
 
-    post {
-        self.recipientCollectionRef.getIDs().contains(self.mintingIDBefore): "The next NFT ID should have been minted and delivered"
-        ExampleNFT.totalSupply == self.mintingIDBefore + 1: "The total supply should have been increased by 1"
-    }
 }
